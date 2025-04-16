@@ -1,0 +1,69 @@
+/* You can add custom styles here if needed */
+body {
+  font-family: sans-serif; /* Consistent font */
+}
+
+.container {
+  
+  display: flex;          
+  justify-content: center;  
+  align-items: center;        
+}
+
+.bg-light-blue {
+  background: linear-gradient(to right, #e3f2fd, #d0f1ff);
+}
+
+
+.navbar-custom {
+  background: rgba(208, 241, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
+.nav-link {
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  color: #0d6efd !important;
+  transform: scale(1.05);
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 2.5rem;
+  padding-left: .5rem;
+}
+
+/* .card {
+  border: 2px;
+  border-width: 2px;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-color: hsl(var(--primary) / .2);
+  border-radius: var(--radius);
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+  
+} */
+
+.form-control::placeholder {
+  color: #6c757d; /* Muted placeholder text */
+}
+
+.input-group-text {
+  background-color: transparent;
+  border-right: none;
+  color: #6c757d;
+}
+
+.form-control {
+  border-left: none;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Primary blue color */
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

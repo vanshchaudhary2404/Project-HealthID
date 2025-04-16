@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Dashboard Loading</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #e0f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .icon svg {
+            width: 40px;
+            height: 40px;
+            fill: #00bcd4;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .loading-text {
+            color: #777;
+        }
+        /* Loader Dots */
+        .loader {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: #00bcd4;
+            margin: 0 5px;
+            animation: loading 1.5s infinite;
+        }
+        .dot:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .dot:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        @keyframes loading {
+            0%, 80%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="icon">
+        <!-- Example SVG Heart Icon -->
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.36 0 4.48 1.06 5.5 2.5C14.02 4.06 16.14 3 18.5 3 21.58 3 24 5.42 24 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </div>
+
+    <h1>HealthID</h1>
+    <div class="loading-text">Loading your health dashboard</div>
+    <div class="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000); // 3000ms = 3 seconds
+    </script>    
+</body>
+</html>
