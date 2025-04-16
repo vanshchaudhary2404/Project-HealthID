@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthID - Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top shadow-sm">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center" style="width: 32px; height: 32px; font-weight: bold;">H</div>
+        <span class="fw-bold text-primary">HealthID</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">Contact</a>
+          </li>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link text-dark" href="login.html">Staff Login</a>
+          </li>
+        </ul>
+        <a href="login.html" class="btn btn-light border shadow-sm d-none d-lg-block rounded-pill">
+          <i class="bi bi-box-arrow-in-right"></i> Staff Login
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid d-flex align-items-center justify-content-center vh-100 bg-light-blue">
+    <div class="row w-100 align-items-center justify-content-center">
+      <div class="col-md-6 px-5">
+        <h2 class="text-primary fw-bold">HealthID Portal</h2>
+        <h1 class="fw-bold display-5">Welcome to your <span class="text-primary">HealthID</span> portal</h1>
+        <p class="text-muted">Access your medical records securely and connect with healthID professionals instantly.</p>
+        <div class="card p-3 my-3 shadow-sm rounded-pill border-light d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <div class="icon bg-primary text-white rounded-circle me-3 d-flex justify-content-center align-items-center">
+              <i class="bi bi-credit-card-2-front"></i>
+            </div>
+            <div>
+              <strong>Scan RFID/NFC Card</strong><br>
+              <small class="text-muted">Quickly access with your healthcare card</small>
+            </div>
+          </div>
+          <button class="btn btn-outline-primary rounded-circle" onclick="scanRFID()">&rarr;</button>
+        </div>
+        <div class="card p-3 my-3 shadow-sm rounded-pill border-light d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <div class="icon bg-info text-white rounded-circle me-3 d-flex justify-content-center align-items-center">
+              <i class="bi bi-fingerprint"></i>
+            </div>
+            <div>
+              <strong>Enter Patient ID</strong><br>
+              <small class="text-muted">Manually input your patient identifier</small>
+            </div>
+          </div>
+          <button class="btn btn-outline-primary rounded-circle" onclick="enterPatientID()">&rarr;</button>
+        </div>
+      </div>
+      <div class="col-md-5 text-end">
+        <img src="doctor-consult-illustration.png" alt="Medical Illustration" class="img-fluid">
+        <!-- <a href="login.html" class="btn btn-light border shadow-sm position-absolute top-0 end-0 m-4 rounded-pill">
+          <i class="bi bi-box-arrow-in-right"></i> Staff Login
+        </a> -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- RFID Toast Alert -->
+<div class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 1055;">
+    <div id="rfidToast" class="toast align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+            Scanning RFID/NFC card...
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</body>
+</html>
