@@ -16,7 +16,7 @@ HealthID transforms how hospitals manage patient data. With the simple scan of a
 
 ## Project ScreenShots
    Checkout the project ScreenShots on 
-   [![Drive Link](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=google-drive&logoColor=white)](https://drive.google.com/drive/u/2/home)
+   [![Drive Link](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1oOWu8pQpC6tukXn9xw1SerKjzPyJEfMC?usp=share_link)
 
    
 
