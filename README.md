@@ -18,8 +18,9 @@ HealthID transforms how hospitals manage patient data. With the simple scan of a
    Checkout the project ScreenShots on 
    [![Drive Link](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1oOWu8pQpC6tukXn9xw1SerKjzPyJEfMC?usp=share_link)
 
+   Checkout the working prototype videoo on
+   [![Drive Link](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/17zt86GTJekdSYjBmxC1qCpVJYcwkwY-8?usp=share_link)
    
-
 ## 🛠️ Tech Stack
 Frontend
  - HTML
