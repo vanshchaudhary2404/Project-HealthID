@@ -14,6 +14,12 @@ HealthID transforms how hospitals manage patient data. With the simple scan of a
  - Visit history
  - All the data is securely stored and managed through a modern web interface with real-time access.
 
+## Project ScreenShots
+   Checkout the project ScreenShots on 
+   [![Drive Link](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=google-drive&logoColor=white)](https://drive.google.com/drive/u/2/home)
+
+   
+
 ## 🛠️ Tech Stack
 Frontend
  - HTML
