@@ -64,7 +64,7 @@
       e.preventDefault(); // Prevent the default form submission
       const patientID = document.getElementById("patientID").value;
       if (patientID.trim() !== "") {
-        // Redirect to the dashboard with the patient ID as a query parameter
+       
         window.location.href = "dashboard.html?patientId=" + encodeURIComponent(patientID);
       } else {
         alert("Please enter a valid Patient ID.");
@@ -72,12 +72,12 @@
     });
 
     function goBack() {
-      // Use a safer method to go back, if history is available
+      
       if (window.history.length > 1) {
         window.history.back();
       } else {
-        // If there's no history, redirect to a default page
-        window.location.href = "/"; // Or your home page
+        
+        window.location.href = "/"; 
       }
     }
   </script>
