@@ -1,4 +1,4 @@
-// Import necessary modules
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
@@ -12,12 +12,12 @@ const firebaseConfig = {
   appId: "1:644379177641:web:ca7b5d50a111a9d1f42fb8"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-// Global patientId variable
+
 let patientId = null;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPatientData(patientId); // Load data immediately
   } else {
     console.warn("No patientId found, dashboard may be empty.");
-    // Optionally redirect to patient-id.html if no patientId
-    // window.location.href = "patient-id.html";
+    
   }
 });
 
