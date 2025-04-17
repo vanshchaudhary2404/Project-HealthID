@@ -1,6 +1,6 @@
-/* You can add custom styles here if needed */
+
 body {
-  font-family: sans-serif; /* Consistent font */
+  font-family: sans-serif;
 }
 
 .container {
@@ -31,21 +31,9 @@ body {
   padding-left: .5rem;
 }
 
-/* .card {
-  border: 2px;
-  border-width: 2px;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  border-color: hsl(var(--primary) / .2);
-  border-radius: var(--radius);
-    border-top-left-radius: 0.8rem;
-    border-top-right-radius: 0.8rem;
-    border-bottom-right-radius: 0.8rem;
-    border-bottom-left-radius: 0.8rem;
-  
-} */
 
 .form-control::placeholder {
-  color: #6c757d; /* Muted placeholder text */
+  color: #6c757d; 
 }
 
 .input-group-text {
@@ -59,7 +47,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #007bff; /* Primary blue color */
+  background-color: #007bff;
   border-color: #007bff;
 }
 
