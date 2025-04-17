@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HealthID Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      font-weight: 600;
+    }
+    .navbar {
+      background: #1976d2;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    .navbar-brand {
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+    .navbar-brand .bg-primary {
+      background: #ffffff;
+      color: #1976d2;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+    }
+    .navbar-nav {
+      margin-left: auto;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .navbar-nav #navbar-username {
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: #ffffff;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h5 {
+      font-weight: 600;
+      color: #1976d2;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    .card-content {
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .list-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .initials-circle {
+      width: 80px;
+      height: 80px;
+      background: #2196f3;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    [contenteditable] {
+      outline: none;
+    }
+    .rounded-circle {
+      border-radius: 50% !important;
+      object-fit: cover;
+    }
+    .edit-btn, .save-btn {
+      display: none;
+    }
+    .btn-add {
+      align-self: flex-end;
+      margin-top: auto;
+    }
+    .btn-primary {
+      background-color: #2196f3;
+      border-color: #2196f3;
+    }
+    .btn-primary:hover {
+      background-color: #1976d2;
+      border-color: #1976d2;
+    }
+    .btn-success {
+      background-color: #42a5f5;
+      border-color: #42a5f5;
+    }
+    .btn-success:hover {
+      background-color: #2196f3;
+      border-color: #2196f3;
+    }
+    .btn-secondary {
+      background-color: #90a4ae;
+      border-color: #90a4ae;
+    }
+    .btn-secondary:hover {
+      background-color: #78909c;
+      border-color: #78909c;
+    }
+    .btn-danger {
+      background-color: #f44336;
+      border-color: #f44336;
+    }
+    .btn-danger:hover {
+      background-color: #d32f2f;
+      border-color: #d32f2f;
+    }
+    .text-end {
+      margin-top: 2rem;
+    }
+    .form-control {
+      border-radius: 10px;
+      border: 2px solid #bbdefb;
+      background: linear-gradient(135deg, #ffffff 70%, #e3f2fd 100%);
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: #2196f3;
+      background: #ffffff;
+      box-shadow: 0 0 8px rgba(33, 150, 243, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      outline: none;
+    }
+    .form-control:disabled {
+      background: none;
+      outline: none;
+      border-bottom: 2px solid #2196f3;
+      box-shadow: none;
+      color: #666;
+      font-weight: 600;
+      opacity: 1;
+    }
+    .modal-content {
+      border-radius: 12px;
+    }
+    .modal-header {
+      background: #e3f2fd;
+      border-bottom: 1px solid #bbdefb;
+    }
+    .modal-title {
+      font-weight: 600;
+      color: #1976d2;
+    }
+    .form-label {
+      font-weight: 500;
+      color: #424242;
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+      .navbar-nav {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .navbar-nav #navbar-username {
+        display: none;
+      }
+      .card {
+        min-height: auto;
+      }
+      .col-md-4, .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .row {
+        margin: 0 -0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+      }
+      .text-end {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+    }
+    @media (min-width: 769px) {
+      .row {
+        display: flex;
+        align-items: stretch;
+      }
+      .card {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body class="p-4">
+  <nav class="navbar navbar-expand-lg bg-light-blue px-4 py-3 rounded shadow">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center" style="width: 32px; height: 32px; font-weight: bold;">H</div>
+      <span class="fw-bold text-white">HealthID</span>
+    </a>
+    <button id="updateInfoButton" class="btn btn-primary ms-auto">Update Info</button>
+    <span id="navbar-username" style="display: none;"></span>
+    <button id="logout-button" style="display: none;" class="btn btn-danger ms-2">Logout</button>
+  </nav>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login to Update Info</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <h2 class="h5 fw-semibold mb-3">Emergency Information</h2>
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Patient Information</h5>
+          <div class="card-content">
+            <div class="d-flex gap-3 mb-3">
+              <div id="patientInitials" class="initials-circle"></div>
+              <div>
+                <input id="patientName" class="form-control" placeholder="Name" disabled>
+                <input id="patientGender" class="form-control" placeholder="Gender" disabled>
+                <input id="patientDOB" class="form-control" placeholder="DOB" disabled>
+                <input id="patientStatus" class="form-control" placeholder="Status" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>🩸 Blood & Allergies</h5>
+          <div class="card-content">
+            <input id="bloodType" class="form-control" placeholder="Blood Type" disabled>
+            <div id="allergiesList" class="list-container"></div>
+            <button id="addAllergyBtn" class="btn btn-sm btn-outline-primary btn-add d-none">+ Add Allergy</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Emergency Contact</h5>
+          <div class="card-content">
+            <input id="emergencyContactName" class="form-control" placeholder="Contact Name" disabled>
+            <input id="emergencyContactPhone" class="form-control" placeholder="Contact Phone" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="h5 fw-semibold mb-3">Detailed Medical Information</h2>
+    <div class="row g-4 mb-4">
+      <div class="col-md-6">
+        <div class="card p-3">
+          <h5>💊 Current Medications</h5>
+          <div class="card-content">
+            <div id="medicationsList" class="list-container"></div>
+            <button id="addMedicationBtn" class="btn btn-sm btn-outline-primary btn-add d-none">+ Add Medication</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-3">
+          <h5>📋 Medical History</h5>
+          <div class="card-content">
+            <div id="historyList" class="list-container"></div>
+            <button id="addHistoryBtn" class="btn btn-sm btn-outline-primary btn-add d-none">+ Add History</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>🛡️ Insurance Details</h5>
+          <div class="card-content">
+            <input id="insuranceProvider" class="form-control" placeholder="Provider" disabled>
+            <input id="insurancePolicy" class="form-control" placeholder="Policy Number" disabled>
+            <input id="insuranceGroup" class="form-control" placeholder="Group Number" disabled>
+            <input id="insuranceStatus" class="form-control" placeholder="Status" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>💉 Vaccination Status</h5>
+          <div class="card-content">
+            <div id="vaccinationList" class="list-container"></div>
+            <button id="addVaccineBtn" class="btn btn-sm btn-outline-primary btn-add d-none">+ Add Vaccine</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>🏥 Last Checkup</h5>
+          <div class="card-content">
+            <input id="lastCheckupDate" class="form-control" placeholder="Checkup Date" disabled>
+            <input id="lastCheckupDoctor" class="form-control" placeholder="Doctor" disabled>
+            <input id="lastCheckupBP" class="form-control" placeholder="BP" disabled>
+            <input id="lastCheckupHR" class="form-control" placeholder="Heart Rate" disabled>
+            <input id="lastCheckupWeight" class="form-control" placeholder="Weight" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-3" id="staffNotes">
+      <h5>📝 Staff Notes</h5>
+      <div class="card-content">
+        <div id="notesList" class="list-container"></div>
+        <button id="addNoteBtn" class="btn btn-sm btn-outline-primary btn-add d-none">+ Add Note</button>
+      </div>
+    </div>
+
+    <div class="text-end mt-4">
+      <button id="saveAllChangesBtn" class="btn btn-success d-none">Save All Changes</button>
+      <button id="cancelEditBtn" class="btn btn-secondary d-none ms-2">Cancel Edit</button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script type="module" src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic initials generation based on patientName
+    document.addEventListener('DOMContentLoaded', function() {
+      const patientNameInput = document.getElementById('patientName');
+      const initialsDiv = document.getElementById('patientInitials');
+
+      function updateInitials() {
+        const name = patientNameInput.value.trim();
+        if (name) {
+          const initials = name
+            .split(' ')
+            .map(word => word[0])
+            .join('')
+            .slice(0, 2) // Take up to 2 initials
+            .toUpperCase();
+          initialsDiv.textContent = initials;
+        } else {
+          initialsDiv.textContent = ''; // Clear if no name
+        }
+      }
+
+      patientNameInput.addEventListener('input', updateInitials);
+      // Initial call to set initials if name is pre-filled
+      updateInitials();
+    });
+  </script>
+</body>
+</html>
