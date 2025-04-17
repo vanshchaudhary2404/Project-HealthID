@@ -383,16 +383,16 @@
             .split(' ')
             .map(word => word[0])
             .join('')
-            .slice(0, 2) // Take up to 2 initials
+            .slice(0, 2) 
             .toUpperCase();
           initialsDiv.textContent = initials;
         } else {
-          initialsDiv.textContent = ''; // Clear if no name
+          initialsDiv.textContent = ''; 
         }
       }
 
       patientNameInput.addEventListener('input', updateInitials);
-      // Initial call to set initials if name is pre-filled
+      
       updateInitials();
     });
   </script>
