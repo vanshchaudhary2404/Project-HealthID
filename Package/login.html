@@ -101,12 +101,12 @@
     });
 
     function goBack() {
-      // Use a safer method to go back, if history is available
+      
       if (window.history.length > 1) {
           window.history.back();
       } else {
-        // If there's no history, redirect to a default page
-          window.location.href = "/"; // Or your home page
+        
+          window.location.href = "/"; 
       }
     }
     
