@@ -1,4 +1,4 @@
-# Project_HealthID
+# CuraID
 "To develop an innovative NFC/RFID-based healthcare solution that digitizes patient data access, addressing the critical issue of delayed emergency response due to inefficient manual processes in hospitals."
 ## HealthID 🏥💳
 HealthID is a smart web portal designed for hospitals and healthcare centers to instantly access a patient's complete medical history with a single RFID scan. The platform 
