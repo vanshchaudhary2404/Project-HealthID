@@ -4,7 +4,7 @@ import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/fi
 import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCZi_ctVvu77IyLpLYKgHw6Q8T2h3zgPuc",
+  apikey : "YOUR_FIRBASE_API_KEY"
   authDomain: "healthid-dba33.firebaseapp.com",
   projectId: "healthid-dba33",
   storageBucket: "healthid-dba33.firebasestorage.app",
